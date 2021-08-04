@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+
+@tailwind utilities;
+
+@import url('/fonts/fonts.css');
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Regular.ttf');
+}
+@font-face {
+  font-family: 'PlayFairDisplay';
+  src: url('/fonts/PlayfairDisplay-Regular.ttf'format('ttf'));
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+  @apply font-Poppins;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply font-PlayFairDisplay;
+}
+
+p,
+a,
+label,
+input,
+span,
+div,
+ul,
+li {
+  @apply font-Poppins;
+}
+
+.transition-all {
+  transition: transform 0.3s ease-in-out;
+}
+
+.notActive {
+  transform: translate(100%, 0) !important;
+}
+
+.active {
+  transform: translate(0, 0) !important;
+}
+
+.scroller {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+}
+
+.scroller::-webkit-scrollbar {
+  /* WebKit */
+  width: 0;
+  height: 0;
+}
+
+.productDescription {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.form-input,
+.form-textarea,
+.form-select,
+.form-multiselect,
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus,
+.form-multiselect:focus,
+.form-input:focus-visible,
+.form-radio:focus {
+  border-color: #d6d6d6;
+  --tw-ring-color: transparent;
+}
