@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useAuthContext } from '../components/context/AuthProvider'
 
 const Login = () => {
-  const { signIn, user } = useAuthContext()
+  const { signIn } = useAuthContext()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -27,32 +27,32 @@ const Login = () => {
         </h3>
         <label
           htmlFor='name'
-          className='capitalize font-Poppins text-gray-600 text-sm'
+          className='text-lightGrey text-sm mb-2 capitalize'
         >
           username
         </label>
         <input
           type='text'
-          className='border border-solid border-black mb-3 px-2'
+          className='h-12 border border-solid border-borderColor font-Poppins font-medium text-black focus:ring-transparent focus:outline-none form-input mb-4'
           id='username'
           onChange={(e) => setUsername(e.target.value)}
         />
         <label
           htmlFor='password'
-          className='capitalize font-Poppins text-gray-600 text-sm'
+          className='text-lightGrey text-sm mb-2 capitalize'
         >
           password
         </label>
         <input
           type='password'
           name='password'
-          className='border border-solid border-black mb-3 px-2'
+          className='h-12 border border-solid border-borderColor font-Poppins font-medium text-black focus:ring-transparent focus:outline-none form-input mb-4'
           id='password'
           onChange={(e) => setPassword(e.target.value)}
         />
         <button
           type='submit'
-          className='text-sm font-semibold tracking-wider bg-black text-white py-2 border border-black border-solid capitalize w-1/5 flex items-center justify-center'
+          className='text-sm font-semibold tracking-wider bg-black text-white py-2 border border-black border-solid capitalize w-1/5 flex items-center justify-center my-4'
         >
           login
         </button>

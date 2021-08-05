@@ -55,7 +55,7 @@ const Index = ({ products }) => {
                       </h2>
                       <p className='text-gray-700 mb-4 font-Poppins text-base'>
                         {'\u20A6'}
-                        {product.price}
+                        {product.price.toLocaleString()}
                       </p>
                     </article>
                   </a>

@@ -1,7 +1,5 @@
 import Categories from '../components/categories/Categories'
-import Footer from '../components/Footer'
 import Hero from '../components/header/Hero'
-import Nav from '../components/navigation/Nav'
 import Newproducts from '../components/NewProducts'
 import Quote from '../components/Quote'
 

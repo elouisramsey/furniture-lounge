@@ -10,14 +10,15 @@ const NewProduct = () => {
   const [image, setImage] = useState('')
   const [description, setDescription] = useState('')
   const [price, setPrice] = useState('')
-  const [size, setSize] = useState('')
+  const [weight, setWeight] = useState('')
+  const [category, setCategory] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     //   upload image to s3
     const uploadedImage = await Storage.put(image.name, image)
 
-    const newProduct = await API.graphql({
+    const data = await API.graphql({
       query: createProduct,
       variables: {
         input: {
@@ -30,46 +31,93 @@ const NewProduct = () => {
           },
           description,
           price,
-          size
+          weight,
+          category
         }
       }
     })
+    console.log(data)
   }
   return (
     <section>
-      <article className='px-10'>
-        <h3 className='font-PlayFairDisplay text-xl font-medium text-black my-8'>
-          Add a new product
+      <article className='px-10 py-5'>
+        <h3 className='font-PlayFairDisplay text-xl font-medium text-black mb-4'>
+          Add a New Product
         </h3>
         <form onSubmit={handleSubmit} className='flex flex-col mb-16'>
-          <h2>Create a Product</h2>
-          <label htmlFor='name'>Name</label>
+          <label
+            htmlFor='name'
+            className='text-lightGrey text-sm mb-2 capitalize'
+          >
+            Name
+          </label>
           <input
-            className='border border-solid border-black mb-3'
+            autoFocus
+            className='h-12 border border-solid border-borderColor font-Poppins font-medium text-black focus:ring-transparent focus:outline-none form-input mb-3 mb-3'
             type='text'
             id='name'
+            name='name'
             onChange={(e) => setName(e.target.value)}
           />
-          <label htmlFor='description'>description</label>
+          <label
+            htmlFor='price'
+            className='text-lightGrey text-sm mb-2 capitalize'
+          >
+            price
+          </label>
           <input
-            className='border border-solid border-black mb-3'
-            type='text'
-            id='description'
-            onChange={(e) => setDescription(e.target.value)}
-          />
-          <label htmlFor='price'>price</label>
-          <input
-            className='border border-solid border-black mb-3'
+            className='h-12 border border-solid border-borderColor font-Poppins font-medium text-black focus:ring-transparent focus:outline-none form-input mb-3 mb-3'
             type='number'
             id='price'
+            name='price'
             onChange={(e) => setPrice(e.target.value)}
           />
-          <label htmlFor='size'>size</label>
+          <label
+            htmlFor='size'
+            className='text-lightGrey text-sm mb-2 capitalize'
+          >
+            weight
+          </label>
           <input
-            className='border border-solid border-black mb-3'
+            className='h-12 border border-solid border-borderColor font-Poppins font-medium text-black focus:ring-transparent focus:outline-none form-input mb-3 mb-3'
             type='text'
-            id='size'
-            onChange={(e) => setSize(e.target.value)}
+            name='weight'
+            id='weight'
+            onChange={(e) => setWeight(e.target.value)}
+          />
+          <label
+            htmlFor='category'
+            className='text-lightGrey text-sm mb-2 capitalize'
+          >
+            category
+          </label>
+
+          <select
+            onChange={(e) => setCategory(e.target.value)}
+            required
+            name='category'
+            id='category'
+            className='h-12 border border-solid border-borderColor font-Poppins font-medium text-softGrey form-select  focus:border-borderColor focus:ring-transparent focus:outline-none capitalize mb-3'
+          >
+            <option className='text-softGrey' value='sofa'>
+              sofa
+            </option>
+            <option className='text-softGrey' value='big_guy'>
+              big guy
+            </option>
+          </select>
+          <label
+            htmlFor='description'
+            className='text-lightGrey text-sm mb-2 capitalize'
+          >
+            description
+          </label>
+          <textarea
+            className='h-32 border border-solid border-borderColor font-Poppins font-medium text-black focus:ring-transparent focus:outline-none form-input resize-none mb-3'
+            type='text'
+            name='description'
+            id='description'
+            onChange={(e) => setDescription(e.target.value)}
           />
           <label htmlFor='image'>Image</label>
           <input
@@ -78,12 +126,15 @@ const NewProduct = () => {
             id='image'
             onChange={(e) => setImage(e.target.files[0])}
           />
-          <button
-            type='submit'
-            className='flex items-center justify-center px-8 my-4 bg-black hover:bg-white border border-black border-solid font-semibold capitalize transition duration-500 ease-in-out font-Poppins text-sm font-bold tracking-wider py-2 text-white w-1/5 hover:text-black'
-          >
-            create
-          </button>
+          <div className=''>
+            {' '}
+            <button
+              type='submit'
+              className='flex items-center justify-center px-8 my-9 bg-black hover:bg-white border border-black border-solid font-semibold capitalize transition duration-500 ease-in-out font-Poppins text-sm font-bold tracking-wider py-2 text-white hover:text-black'
+            >
+              create new product
+            </button>
+          </div>
         </form>
       </article>
     </section>

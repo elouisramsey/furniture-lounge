@@ -16,7 +16,7 @@ const Nav = () => {
         <section className='w-full flex items-center justify-between'>
           {' '}
           <nav className='flex justify-between items-center lg:w-1/2'>
-            <ul className='flex items-center'>
+            <ul className='flex items-center w-full'>
               <li>
                 <Link href='/'>
                   <a className='Poppins text-sm text-black capitalize font-medium mr-4'>
@@ -27,8 +27,15 @@ const Nav = () => {
               <li></li>
               <li>
                 <Link href='/products'>
-                  <a className='Poppins text-sm text-black capitalize font-medium'>
+                  <a className='Poppins text-sm text-black capitalize font-medium mr-4'>
                     all product
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href='/newProduct'>
+                  <a className='Poppins text-sm text-black capitalize font-medium'>
+                    add a chair
                   </a>
                 </Link>
               </li>

@@ -8,6 +8,7 @@ export const getProduct = /* GraphQL */ `
       name
       description
       size
+      price
       image {
         bucket
         region
@@ -17,7 +18,7 @@ export const getProduct = /* GraphQL */ `
       updatedAt
     }
   }
-`;
+`
 export const listProducts = /* GraphQL */ `
   query ListProducts(
     $filter: ModelProductFilterInput
@@ -29,6 +30,7 @@ export const listProducts = /* GraphQL */ `
         id
         name
         description
+        price
         size
         image {
           bucket
@@ -41,4 +43,4 @@ export const listProducts = /* GraphQL */ `
       nextToken
     }
   }
-`;
+`

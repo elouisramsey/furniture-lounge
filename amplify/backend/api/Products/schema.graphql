@@ -4,12 +4,12 @@ type file {
   key: String!
 }
 
-type Product @model @auth(rules: [{allow: public}]) {
+type Product @model {
   id: ID!
   name: String!
   description: String!
-  size: Int!
-  image: file
+  category: String!
+  image: file!
   price: Int!
+  weight: Int!
 }
- 
