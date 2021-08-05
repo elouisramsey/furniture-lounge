@@ -8,7 +8,7 @@
     }
   },
   "storage": {
-    "chairlounge": {
+    "chairlonge": {
       "service": "S3",
       "providerPlugin": "awscloudformation"
     }
@@ -22,8 +22,8 @@
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 300,
-              "description": "furnitures"
+              "apiKeyExpirationDays": 360,
+              "description": ""
             }
           },
           "additionalAuthenticationProviders": []

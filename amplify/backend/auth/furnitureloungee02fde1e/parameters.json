@@ -1,6 +1,6 @@
 {
     "identityPoolName": "furnitureloungee02fde1e_identitypool_e02fde1e",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "furnite02fde1e",
     "userPoolName": "furnitureloungee02fde1e_userpool_e02fde1e",
     "autoVerifiedAttributes": [

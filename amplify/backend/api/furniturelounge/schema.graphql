@@ -4,7 +4,7 @@ type file {
   key: String!
 }
 
-type Product @model {
+type Product @model @auth(rules: [{ allow: public }]) {
   id: ID!
   name: String!
   description: String!
