@@ -1,6 +1,6 @@
 {
   "auth": {
-    "iheejigoro73a7647f": {
+    "furniturelounge7de7e287": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -8,13 +8,13 @@
     }
   },
   "storage": {
-    "iheejigoro": {
+    "chairlounge": {
       "service": "S3",
       "providerPlugin": "awscloudformation"
     }
   },
   "api": {
-    "Products": {
+    "furniturelounge": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
@@ -23,20 +23,10 @@
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
               "apiKeyExpirationDays": 300,
-              "description": ""
+              "description": "furnitures"
             }
           },
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "AWS_IAM"
-            },
-            {
-              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-              "userPoolConfig": {
-                "userPoolId": "authiheejigoro73a7647f"
-              }
-            }
-          ]
+          "additionalAuthenticationProviders": []
         }
       }
     }

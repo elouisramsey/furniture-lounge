@@ -11,7 +11,6 @@ const NewProduct = () => {
   const [description, setDescription] = useState('')
   const [price, setPrice] = useState('')
   const [weight, setWeight] = useState('')
-  const [category, setCategory] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -73,7 +72,7 @@ const NewProduct = () => {
             onChange={(e) => setPrice(e.target.value)}
           />
           <label
-            htmlFor='size'
+            htmlFor='weight'
             className='text-lightGrey text-sm mb-2 capitalize'
           >
             weight
@@ -93,7 +92,6 @@ const NewProduct = () => {
           </label>
 
           <select
-            onChange={(e) => setCategory(e.target.value)}
             required
             name='category'
             id='category'
@@ -106,6 +104,7 @@ const NewProduct = () => {
               big guy
             </option>
           </select>
+
           <label
             htmlFor='description'
             className='text-lightGrey text-sm mb-2 capitalize'

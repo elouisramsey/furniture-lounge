@@ -1,20 +1,19 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-chairlounge-dev-213015-authRole",
-      "UnauthRoleArn": "arn:aws:iam::097895025316:role/amplify-chairlounge-dev-213015-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::097895025316:role/amplify-chairlounge-dev-213015-authRole",
+      "AuthRoleName": "amplify-furniturelounge-dev-161137-authRole",
+      "UnauthRoleArn": "arn:aws:iam::097895025316:role/amplify-furniturelounge-dev-161137-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::097895025316:role/amplify-furniturelounge-dev-161137-authRole",
       "Region": "us-east-2",
-      "DeploymentBucketName": "amplify-chairlounge-dev-213015-deployment",
-      "UnauthRoleName": "amplify-chairlounge-dev-213015-unauthRole",
-      "StackName": "amplify-chairlounge-dev-213015",
-      "StackId": "arn:aws:cloudformation:us-east-2:097895025316:stack/amplify-chairlounge-dev-213015/83fa9330-f49a-11eb-8f54-0a6458d22c16",
-      "AmplifyAppId": "d2a5enys7wxj44"
+      "DeploymentBucketName": "amplify-furniturelounge-dev-161137-deployment",
+      "UnauthRoleName": "amplify-furniturelounge-dev-161137-unauthRole",
+      "StackName": "amplify-furniturelounge-dev-161137",
+      "StackId": "arn:aws:cloudformation:us-east-2:097895025316:stack/amplify-furniturelounge-dev-161137/71e746a0-f5ff-11eb-9d3e-0a1cbfd10f3e",
+      "AmplifyAppId": "d1eo9u8ju67kaf"
     },
     "categories": {
       "auth": {
-        "chairloungea6547163": {},
-        "iheejigoro73a7647f": {}
+        "furniturelounge7de7e287": {}
       }
     }
   }

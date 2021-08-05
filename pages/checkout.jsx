@@ -379,8 +379,8 @@ const Checkout = () => {
                         <p className='text-sm text-lightGrey'>
                           Quantity: {product.quantity}
                         </p>{' '}
-                        <p className='text-sm text-lightGrey'>
-                          Size: {product.size}
+                        <p className='text-sm text-lightGrey capitalize'>
+                          weight: {product.weight}kg
                         </p>
                       </section>
                     </section>

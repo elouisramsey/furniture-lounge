@@ -78,7 +78,8 @@ export async function getByID(id) {
             id
             name
             description
-            size
+            weight
+            category
             image {
               key
               region

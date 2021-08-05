@@ -10,12 +10,14 @@ export const createProduct = /* GraphQL */ `
       id
       name
       description
-      size
+      category
       image {
         bucket
         region
         key
       }
+      price
+      weight
       createdAt
       updatedAt
     }
@@ -30,12 +32,14 @@ export const updateProduct = /* GraphQL */ `
       id
       name
       description
-      size
+      category
       image {
         bucket
         region
         key
       }
+      price
+      weight
       createdAt
       updatedAt
     }
@@ -50,12 +54,14 @@ export const deleteProduct = /* GraphQL */ `
       id
       name
       description
-      size
+      category
       image {
         bucket
         region
         key
       }
+      price
+      weight
       createdAt
       updatedAt
     }

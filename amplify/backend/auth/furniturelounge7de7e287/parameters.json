@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "iheejigoro73a7647f_identitypool_73a7647f",
+    "identityPoolName": "furniturelounge7de7e287_identitypool_7de7e287",
     "allowUnauthenticatedIdentities": true,
-    "resourceNameTruncated": "iheeji73a7647f",
-    "userPoolName": "iheejigoro73a7647f_userpool_73a7647f",
+    "resourceNameTruncated": "furnit7de7e287",
+    "userPoolName": "furniturelounge7de7e287_userpool_7de7e287",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -18,7 +18,13 @@
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
-        "email"
+        "email",
+        "picture",
+        "profile"
+    ],
+    "aliasAttributes": [
+        "email",
+        "preferred_username"
     ],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
@@ -28,10 +34,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "iheeji73a7647f_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "furnit7de7e287_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "73a7647f",
-    "resourceName": "iheejigoro73a7647f",
+    "sharedId": "7de7e287",
+    "resourceName": "furniturelounge7de7e287",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -46,8 +52,14 @@
         ]
     },
     "useDefault": "default",
+    "triggers": "{}",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "breakCircularDependency": true,
+    "permissions": [],
     "dependsOn": []
 }
