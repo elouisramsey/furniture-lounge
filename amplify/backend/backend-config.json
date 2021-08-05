@@ -1,6 +1,6 @@
 {
   "auth": {
-    "furniturelounge7de7e287": {
+    "furnitureloungee02fde1e": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],

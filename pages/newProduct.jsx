@@ -11,6 +11,7 @@ const NewProduct = () => {
   const [description, setDescription] = useState('')
   const [price, setPrice] = useState('')
   const [weight, setWeight] = useState('')
+  const [category, setcategory] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -35,7 +36,7 @@ const NewProduct = () => {
         }
       }
     })
-    console.log(data)
+    // console.log(data)
   }
   return (
     <section>
@@ -92,6 +93,8 @@ const NewProduct = () => {
           </label>
 
           <select
+            onChange={(e) => setcategory(e.target.value)}
+            value={category}
             required
             name='category'
             id='category'
