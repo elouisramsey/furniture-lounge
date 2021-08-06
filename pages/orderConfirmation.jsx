@@ -1,11 +1,10 @@
 import { withRouter } from 'next/router'
-import { useAuthContext } from '../components/context/AuthProvider'
 import Success from '../components/Success'
 
 const OrderConfirmation = (props) => {
-  const reference = props.router.query.reference
+  const { reference, cart, total } = props.router.query
 
-  return <Success reference={reference} />
+  return <Success reference={reference} cart={cart} total={total} />
 }
 
 export default withRouter(OrderConfirmation)

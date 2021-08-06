@@ -10,16 +10,21 @@ import { usePaystackPayment } from 'react-paystack'
 import { useAuthContext } from '../components/context/AuthProvider'
 import Login from './login'
 import { done } from 'nprogress'
+import { useState } from 'react'
 
 const Checkout = () => {
   const { cart, total, emptyCart } = useCartContext()
   const { user, userprofile } = useAuthContext()
+  const [delivery, setDelivery] = useState(0)
+
+  const totalCost = total + parseInt(delivery, 10)
+
   // paystack config
   const config = {
     reference: new Date().getTime().toString(),
     publicKey: process.env.NEXT_PUBLIC_PAYSTACK,
     email: `${userprofile?.attributes.email}`,
-    amount: (total + 1000) * 100,
+    amount: totalCost * 100,
     metadata: {
       // cart_id: 398,
       custom_fields: []
@@ -30,16 +35,34 @@ const Checkout = () => {
     email: yup.string().email().required(),
     name: yup.string().required(),
     telephone: yup.number().required(),
-    shippingName: yup.string().required(),
     address: yup.string().required(),
     address2: yup.string(),
-    shippingMethod: yup.string().required(),
     notes: yup.string(),
-    credit: yup.boolean(),
-    card: yup.number().min(12).required(),
-    CVV: yup.number().min(3).required(),
-    month: yup.number().min(2).required(),
-    year: yup.number().min(2).required()
+    credit: yup.string().required(),
+    card: yup
+      .string()
+      .required()
+      .matches(/^[0-9]+$/, 'Must be only digits')
+      .min(12, 'Must be exactly 12 digits')
+      .max(12, 'Must be exactly 12 digits'),
+    CVV: yup
+      .string()
+      .required()
+      .matches(/^[0-9]+$/, 'Must be only digits')
+      .min(3, 'Must be exactly 3 digits')
+      .max(3, 'Must be exactly 3 digits'),
+    month: yup
+      .string()
+      .required()
+      .matches(/^[0-9]+$/, 'Must be only digits')
+      .min(2, 'Must be exactly 2 digits')
+      .max(2, 'Must be exactly 2 digits'),
+    year: yup
+      .string()
+      .required()
+      .matches(/^[0-9]+$/, 'Must be only digits')
+      .min(2, 'Must be exactly 2 digits')
+      .max(2, 'Must be exactly 2 digits')
   })
 
   const {
@@ -51,11 +74,14 @@ const Checkout = () => {
 
   // handle form submissions
   const onSubmitHandler = (data) => {
+    console.log(data)
     config.metadata.custom_fields = {
       display_name: data.name
     }
-    data.total = total
+    data.total = totalCost
     data.items = cart
+    data.deliveryMethod = delivery
+
     axios({
       method: 'POST',
       url: 'https://formspree.io/f/mayapdkq',
@@ -64,13 +90,12 @@ const Checkout = () => {
       initializePayment(onSuccess, onClose)
     })
   }
-
   const onSuccess = (reference) => {
     // Implementation for whatever you want to do with reference and after success call.
 
     Router.push({
       pathname: '/orderConfirmation',
-      query: { reference: reference.reference }
+      query: { reference: reference.reference, cart: cart, total: totalCost }
     })
     emptyCart()
     reset()
@@ -86,7 +111,7 @@ const Checkout = () => {
   return (
     // <Success />
     <>
-      {user ? (
+      {user && (
         <section className='px-10 py-8 flex'>
           <form
             onSubmit={handleSubmit(onSubmitHandler)}
@@ -216,17 +241,26 @@ const Checkout = () => {
               Shipping method*
             </label>
             <select
+              onChange={(e) => setDelivery(e.target.value)}
+              // value={delivery}
               required
-              {...register('shippingMethod')}
-              name='shippingMethod'
-              id='shippingMethod'
+              // {...register('delivery')}
+              name='delivery'
+              id='delivery'
               className='h-12 border border-solid border-borderColor font-Poppins font-medium text-softGrey form-select  focus:border-borderColor focus:ring-transparent focus:outline-none'
             >
-              <option className='text-softGrey' value='internal'>
+              <option className='text-softGrey' value='0'>
+                Select a delivery option
+              </option>
+              <option
+                className='text-softGrey'
+                defaultValue='7000'
+                value='7000'
+              >
                 Internal delivery - 7000 {'\u20A6'}
               </option>
-              <option className='text-softGrey' value='method'>
-                Select a delivery method
+              <option className='text-softGrey' value='13000'>
+                Long distance -13000 {'\u20A6'}
               </option>
             </select>
             <p className='text-xs'>{errors.shippingMethod?.message}</p>
@@ -406,8 +440,8 @@ const Checkout = () => {
                 <section className='flex justify-between items-center '>
                   <p className='font-thin text-black capitalize'>shipping</p>
                   <p className='font-medium bold text-black'>
-                    National - {'\u20A6'}
-                    {(1000).toLocaleString()}
+                    {'\u20A6'}
+                    {delivery}
                   </p>
                 </section>
                 <section className='flex justify-between items-center '>
@@ -422,15 +456,14 @@ const Checkout = () => {
                   total amount
                 </p>
                 <p className='text-black font-semibold text-lg'>
-                  {'\u20A6'} {(total + 1000).toLocaleString()}
+                  {'\u20A6'} {totalCost.toLocaleString()}
                 </p>
               </section>
             </section>
           </section>
         </section>
-      ) : (
-        <Login />
       )}
+      {!user && <Login />}
     </>
   )
 }
