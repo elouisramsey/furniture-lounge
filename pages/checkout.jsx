@@ -111,7 +111,7 @@ const Checkout = () => {
   return (
     // <Success />
     <>
-      {user && (
+      {user ? (
         <section className='px-10 py-8 flex'>
           <form
             onSubmit={handleSubmit(onSubmitHandler)}
@@ -462,8 +462,9 @@ const Checkout = () => {
             </section>
           </section>
         </section>
+      ) : (
+        <Login />
       )}
-      {!user && <Login />}
     </>
   )
 }
