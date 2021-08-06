@@ -11,10 +11,10 @@ const Newproducts = ({ products }) => {
           Limited reservations on upcoming products and restocks
         </p>
 
-        <Arrow link='/all' text='See more products' />
+        <Arrow link='/products' text='See more products' />
       </article>
       <article className='grid-cols-4 grid gap-6 my-16'>
-        {products ? (
+        {products.length >= 1 ? (
           products.slice(0, 4).map((product) => (
             <Link href={`products/${product.id}`} key={product.id}>
               <a className='flex flex-col'>
