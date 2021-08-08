@@ -6,33 +6,20 @@ import config from '../src/aws-exports'
 import { Auth } from 'aws-amplify'
 import { AuthProvider } from '../components/context/AuthProvider'
 import { useRouter, Router } from 'next/router'
-import getConfig from 'next/config'
 
 import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
 
 import Nav from '../components/navigation/Nav'
 import Footer from '../components/Footer'
 import { CartProvider } from '../components/context/CartProvider'
 import Layout from '../components/header/Layout'
 
-const { publicRuntimeConfig } = getConfig()
-NProgress.configure({ showSpinner: publicRuntimeConfig.NProgressShowSpinner })
-
-Router.onRouteChangeStart = () => {
-  // console.log('onRouteChangeStart triggered');
+Router.events.on('routeChangeStart', (url) => {
+  console.log(`Loading: ${url}`)
   NProgress.start()
-}
-
-Router.onRouteChangeComplete = () => {
-  // console.log('onRouteChangeComplete triggered');
-  NProgress.done()
-}
-
-Router.onRouteChangeError = () => {
-  // console.log('onRouteChangeError triggered');
-  NProgress.done()
-}
+})
+Router.events.on('routeChangeComplete', () => NProgress.done())
+Router.events.on('routeChangeError', () => NProgress.done())
 
 Amplify.configure({ ...config, ssr: true })
 
