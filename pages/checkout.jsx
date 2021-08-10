@@ -9,11 +9,11 @@ import Router from 'next/router'
 import { usePaystackPayment } from 'react-paystack'
 import { useAuthContext } from '../components/context/AuthProvider'
 import Login from './login'
-import { done } from 'nprogress'
 import { useState } from 'react'
+import Btn from '../components/buttons/Btn'
 
 const Checkout = () => {
-  const { cart, total, emptyCart } = useCartContext()
+  const { cart, total, emptyCart, numberOfItemsInCart } = useCartContext()
   const { user, userprofile } = useAuthContext()
   const [delivery, setDelivery] = useState(0)
 
@@ -109,9 +109,8 @@ const Checkout = () => {
   const initializePayment = usePaystackPayment(config)
 
   return (
-    // <Success />
     <>
-      {user ? (
+      {user && numberOfItemsInCart !== 0 ? (
         <section className='px-10 py-8 flex'>
           <form
             onSubmit={handleSubmit(onSubmitHandler)}
@@ -460,6 +459,15 @@ const Checkout = () => {
                 </p>
               </section>
             </section>
+          </section>
+        </section>
+      ) : numberOfItemsInCart === 0 ? (
+        <section className='h-screen flex flex-col items-center justify-center'>
+          <h3 className='font-semibold font-Poppins text-black text-sm flex items-center justify-center mb-4'>
+            You dont have anything in cart
+          </h3>
+          <section>
+            <Btn link='/products' text='continue shopping' />
           </section>
         </section>
       ) : (

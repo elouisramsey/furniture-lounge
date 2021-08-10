@@ -5,15 +5,16 @@ import Btn from './buttons/Btn'
 import CartBtn from './buttons/CartBtn'
 import { useCartContext } from './context/CartProvider'
 
-const Cart = ({ open, setOpen }) => {
-  const [numberOfitems, updateNumberOfItems] = useState(1)
+const Cart = () => {
   const {
     numberOfItemsInCart,
     removeFromCart,
     emptyCart,
     total,
     cart,
-    setProductQty
+    setProductQty,
+    setOpen,
+    open
   } = useCartContext()
 
   function increment(product) {
@@ -38,7 +39,7 @@ const Cart = ({ open, setOpen }) => {
         className={'w-full max-w-xl bg-white transition ease-in duration-700'}
       >
         <article className='flex flex-col transition ease-in duration-700 shadow-xl h-full relative'>
-          <section className='p-10 overflow-hidden'>
+          <section className='px-2 py-10 lg:p-10 overflow-hidden'>
             <section className='flex items-center overflow-hidden justify-between pb-8 border-b border-solid border-black transition ease-in duration-700'>
               <h3 className='font-PlayFairDisplay text-xl font-medium text-black capitalize'>
                 shopping cart
@@ -57,14 +58,14 @@ const Cart = ({ open, setOpen }) => {
                   {cart?.map((product) => (
                     <React.Fragment key={product.id}>
                       <article className='flex items-center'>
-                        <section className='flex justify-center items-center h-16 overflow-hidden bg-cateBg'>
+                        <section className='flex justify-center items-center h-16 overflow-hidden bg-cateBg w-full lg:w-1/2 mr-5'>
                           <AmplifyS3Image
                             imgKey={product.image.key}
-                            className='max-w-full flex '
+                            className='flex '
                             alt={product.name}
                           />
                         </section>
-                        <section className='flex flex-col py-3 border-b border-solid border-gray-300 w-4/5 mx-auto justify-center ml-8'>
+                        <section className='flex flex-col py-3 border-b border-solid border-gray-300 w-full lg:w-4/5 mx-auto justify-center xl:ml-8'>
                           <article className='flex w-full items-center justify-between'>
                             <h3 className='font-semibold font-Poppins text-black text-sm capitalize'>
                               {product.name}
@@ -77,7 +78,7 @@ const Cart = ({ open, setOpen }) => {
                             </h3>
                           </article>
                           <p className='font-Poppins text-gray-400 text-xs'>
-                            {product.weight}
+                            {product.weight}kg
                           </p>
                           <article className='flex items-center justify-between mt-3'>
                             <CartBtn
@@ -100,7 +101,7 @@ const Cart = ({ open, setOpen }) => {
               )}
             </section>
           </section>
-          <footer className='border-t py-10 border-solid border-black w-full px-10 bg-cateBg absolute bottom-0'>
+          <footer className='border-t py-10 border-solid border-black w-full px-2 lg:px-10 bg-cateBg absolute bottom-0'>
             <section className='flex items-center justify-between'>
               {' '}
               <h3 className='font-semibold font-Poppins text-gray-400 text-sm'>
@@ -118,8 +119,23 @@ const Cart = ({ open, setOpen }) => {
             </section>
 
             <section className='grid w-full grid-cols-2 gap-6 mt-4 justify-between'>
-              <Btn link='/products' text='continue shopping' />
-              <Btn link='/checkout' text='checkout' bg='black' color='white' />
+              <button
+                onClick={() => setOpen(!open)}
+                className='hidden lg:block'
+              >
+                <Btn link='/products' text='continue shopping' />
+              </button>
+              <button
+                onClick={() => setOpen(!open)}
+                className={numberOfItemsInCart === 0 ? 'disabled-link' : ''}
+              >
+                <Btn
+                  link='/checkout'
+                  text='checkout'
+                  bg='black'
+                  color='white'
+                />
+              </button>
             </section>
           </footer>
         </article>

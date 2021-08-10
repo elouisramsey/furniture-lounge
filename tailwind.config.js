@@ -25,6 +25,9 @@ module.exports = {
         lightGrey: '#a5a5a5',
         borderColor: '#d6d6d6'
       },
+      fontSize: {
+        tiny: '.687rem'
+      },
       rotate: {
         m45: '-45deg'
       },

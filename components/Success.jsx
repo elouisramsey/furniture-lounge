@@ -5,7 +5,7 @@ import Btn from './buttons/Btn'
 const Success = ({ reference, cart, total }) => {
   console.log(cart, total)
   return (
-    <section className='grid grid-cols-2 h-screen'>
+    <section className='grid grid-cols-2'>
       <section className='flex items-center justify-center flex-col h-full'>
         <section className='h-12 w-12 rounded-full items-center flex justify-center bg-success'>
           <BsCheck className='text-white text-2xl' />

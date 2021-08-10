@@ -4,8 +4,8 @@ import { AmplifyS3Image } from '@aws-amplify/ui-react'
 
 const Newproducts = ({ products }) => {
   return (
-    <section className='pb-6 px-10'>
-      <article className='text-center flex flex-col w-2/5 mx-auto items-center mb-6'>
+    <section className='pb-6 lg:px-10'>
+      <article className='text-center flex flex-col lg:w-2/5 mx-auto items-center mb-6'>
         <p className='text-softGrey '>Introducing Our Latest Products</p>
         <p className='font-medium text-2xl mt-6'>
           Limited reservations on upcoming products and restocks
@@ -13,7 +13,7 @@ const Newproducts = ({ products }) => {
 
         <Arrow link='/products' text='See more products' />
       </article>
-      <article className='grid-cols-4 grid gap-6 my-16'>
+      <article className='lg:grid-cols-4 grid gap-6 my-16'>
         {products.length >= 1 ? (
           products.slice(0, 4).map((product) => (
             <Link href={`products/${product.id}`} key={product.id}>
@@ -24,7 +24,7 @@ const Newproducts = ({ products }) => {
                     className='max-w-full flex '
                   />
                 </article>
-                <article className='flex flex-col border-b border-solid border-black'>
+                <article className='mx-4 lg:mx-0 mb-4 lg:mb-0 flex flex-col border-b border-solid border-black'>
                   <h2 className='my-3 font-medium text-black font-Poppins text-base capitalize'>
                     {product.name}
                   </h2>

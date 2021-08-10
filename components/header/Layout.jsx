@@ -11,6 +11,7 @@ export default function Layout() {
           as='font'
           crossOrigin=''
         />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
     </div>
   )

@@ -32,7 +32,7 @@ const apolloClient = new ApolloClient({
 const Index = ({ products }) => {
   return (
     <>
-      <section className='px-10 my-24'>
+      <section className='px-10 my-16'>
         <h2 className='text-heroHead font-PlayFairDisplay text-2xl'>
           All Products
         </h2>

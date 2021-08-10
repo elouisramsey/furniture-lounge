@@ -24,21 +24,21 @@ const Product = ({ product }) => {
   }
 
   return (
-    <section className='px-10 my-12'>
-      <article className='grid grid-cols-2'>
-        <section className='bg-light flex items-center justify-center h-120 hover:bg-light-200'>
-          <article className='py-16 flex items-center justify-center'>
-            <article className='flex justify-center items-center h-64'>
+    <section className='lg:px-10 lg:my-5 flex'>
+      <section className='w-full flex flex-col lg:flex-row'>
+        <section className='bg-light flex items-center justify-center h-120 hover:bg-light-200 w-full'>
+          <section className='py-16 flex items-center justify-center'>
+            <section className='flex justify-center items-center h-64 productDetails'>
               <AmplifyS3Image
                 imgKey={image.key}
                 className='max-w-full flex '
                 alt={name}
               />
-            </article>
-          </article>
+            </section>
+          </section>
         </section>
-        <section className='flex flex-col py-6 pl-16'>
-          <article className='flex items-center'>
+        <section className='flex flex-col py-6 px-4 lg:pl-16 w-full'>
+          <section className='flex items-center'>
             <section className='flex items-center w-1/5'>
               <BsStar className='font-semibold text-black text-base mr-1 fill-current text-black ' />{' '}
               <BsStar className='font-semibold text-black text-base mr-1 fill-current text-black ' />{' '}
@@ -47,17 +47,17 @@ const Product = ({ product }) => {
             <p className='text-base text-black font-semibold font-Poppins ml-6'>
               3/5
             </p>
-          </article>
-          <article>
-            <h2 className='font-PlayFairDisplay text-black capitalize my-2 text-4xl'>
+          </section>
+          <section>
+            <h2 className='font-PlayFairDisplay text-black capitalize my-2 text-3xl lg:text-4xl'>
               {name}
             </h2>
-            <p className='text-black font-Poppins text-base pb-4 my-6'>
+            <p className='text-black font-Poppins text-base pb-4 my-6 text-justify lg:text-left'>
               {description}
             </p>
             <Quantity add={increment} sub={decrement} qty={numberOfitems} />
 
-            <section className='py-6'>
+            <section className='py-12 lg:py-6'>
               <button
                 onClick={() => addProductToCart(product)}
                 className='flex items-center h-14 bg-black text-white border border-black border-solid px-6 w-full flex-grow text hover:text-black hover:bg-white transition duration-100 ease-in-out font-Poppins'
@@ -89,9 +89,9 @@ const Product = ({ product }) => {
                 </p>
               </details>
             </section>
-          </article>
+          </section>
         </section>
-      </article>
+      </section>
     </section>
   )
 }

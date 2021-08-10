@@ -18,7 +18,7 @@ export async function getServerSideProps() {
 
 const Index = ({ products }) => {
   return (
-    <main className='h-screen overflow-x-hidden'>
+    <main className='overflow-x-hidden'>
       <Hero />
       <Quote />
       <Categories />

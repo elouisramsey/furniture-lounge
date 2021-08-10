@@ -35,7 +35,7 @@ const Signup = () => {
   }
 
   return (
-    <section className='flex justify-center h-screen'>
+    <section className='flex justify-center'>
       {step === 0 && (
         <form
           method='post'

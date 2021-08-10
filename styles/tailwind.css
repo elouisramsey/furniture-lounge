@@ -11,13 +11,18 @@
 }
 @font-face {
   font-family: 'PlayFairDisplay';
-  src: url('/fonts/PlayfairDisplay-Regular.ttf'format('ttf'));
+  src: url('/fonts/PlayfairDisplay-Regular.ttf');
 }
 
-body {
-  width: 100vw;
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   overflow-x: hidden;
-  @apply font-Poppins;
+  max-width: 100%;
+  margin: 0 auto;
+  width: 100%;
+  font-family: 'Poppins';
 }
 
 h1,
@@ -36,6 +41,29 @@ div,
 ul,
 li {
   @apply font-Poppins;
+}
+
+.hamburger {
+  width: 16px;
+  height: 2px;
+  background: #000;
+  position: relative;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 2px;
+  background: #000;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+.hamburger::after {
+  top: 8px;
 }
 
 .transition-all {
@@ -163,4 +191,19 @@ li {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.disabled-link {
+  pointer-events: none;
+}
+
+.productDetails amplify-s3-image {
+  --height: 100%;
+  --width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+  /* body {
+    background-color: lightgreen;
+  } */
 }

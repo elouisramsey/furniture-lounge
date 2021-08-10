@@ -16,7 +16,7 @@ const Login = () => {
   }
 
   return (
-    <section className='flex justify-center h-screen'>
+    <section className='flex justify-center'>
       <form
         onSubmit={handleSubmit}
         className='flex shadow-md flex-col py-8 px-8 w-3/5 h-3/5 my-8'

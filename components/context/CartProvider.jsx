@@ -26,6 +26,7 @@ function useForceUpdate() {
 }
 
 export function CartProvider({ children }) {
+  const [open, setOpen] = useState(false)
   const forceUpdate = useForceUpdate()
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -117,7 +118,15 @@ export function CartProvider({ children }) {
 
   return (
     <CartContext.Provider
-      value={{ ...state, setProductQty, addToCart, removeFromCart, emptyCart }}
+      value={{
+        ...state,
+        setProductQty,
+        addToCart,
+        removeFromCart,
+        emptyCart,
+        open,
+        setOpen
+      }}
     >
       {children}
     </CartContext.Provider>

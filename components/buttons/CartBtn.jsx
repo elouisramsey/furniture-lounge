@@ -5,8 +5,8 @@ const CartBtn = ({ add, sub, qty }) => {
     <section className='flex items-center'>
       <button
         className='
-        w-10 h-10 text-xl
-        md:w-6 md:h-8 md:text-sm 
+        h-6 w-6 lg:w-10 lg:h-10 lg:text-xl
+        md:w-6 md:h-8 text-sm 
         cursor-pointer text-center pb-.5
         focus:outline-none overflow-hidden
         '
@@ -16,16 +16,16 @@ const CartBtn = ({ add, sub, qty }) => {
       </button>
       <p
         className='
-        w-10 h-10 pt-2 text-base
-        md:w-6 md:h-8 md:text-xs
-        m-0 text-center'
+        h-6 w-6 lg:w-10 lg:h-10 text-sm
+        md:w-6 md:h-8
+        m-0 text-center flex items-center justify-center'
       >
         {qty}
       </p>
       <button
         className='
-        w-10 h-10 text-2xl
-        md:w-6 md:h-8 md:text-sm
+        h-6 w-6 lg:w-10 lg:h-10 lg:text-2xl
+        md:w-6 md:h-8 text-sm
         cursor-pointer text-center pb-.5
         focus:outline-none overflow-hidden
         '

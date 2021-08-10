@@ -29,11 +29,7 @@ const apolloClient = new ApolloClient({
 })
 
 const Item = ({ product }) => {
-  return (
-    <section>
-      <Product product={product} />
-    </section>
-  )
+  return <Product product={product} />
 }
 
 export default Item
