@@ -32,7 +32,7 @@ const Cart = () => {
     <section
       className={
         (open ? 'active ' : 'notActive ') +
-        'z-50 flex justify-end transition-all w-full fixed top-0 bottom-0'
+        'z-50 flex justify-end transition-all w-full fixed top-0 bottom-0 bg-cartBG'
       }
     >
       <section
@@ -127,7 +127,7 @@ const Cart = () => {
               </button>
               <button
                 onClick={() => setOpen(!open)}
-                className={numberOfItemsInCart === 0 ? 'disabled-link' : ''}
+                // className={cart.length === 0 ? 'disabled-link' : ''}
               >
                 <Btn
                   link='/checkout'

@@ -37,32 +37,32 @@ const Checkout = () => {
     telephone: yup.number().required(),
     address: yup.string().required(),
     address2: yup.string(),
-    notes: yup.string(),
-    credit: yup.string().required(),
-    card: yup
-      .string()
-      .required()
-      .matches(/^[0-9]+$/, 'Must be only digits')
-      .min(12, 'Must be exactly 12 digits')
-      .max(12, 'Must be exactly 12 digits'),
-    CVV: yup
-      .string()
-      .required()
-      .matches(/^[0-9]+$/, 'Must be only digits')
-      .min(3, 'Must be exactly 3 digits')
-      .max(3, 'Must be exactly 3 digits'),
-    month: yup
-      .string()
-      .required()
-      .matches(/^[0-9]+$/, 'Must be only digits')
-      .min(2, 'Must be exactly 2 digits')
-      .max(2, 'Must be exactly 2 digits'),
-    year: yup
-      .string()
-      .required()
-      .matches(/^[0-9]+$/, 'Must be only digits')
-      .min(2, 'Must be exactly 2 digits')
-      .max(2, 'Must be exactly 2 digits')
+    notes: yup.string()
+    // credit: yup.string().required(),
+    // card: yup
+    //   .string()
+    //   .required()
+    //   .matches(/^[0-9]+$/, 'Must be only digits')
+    //   .min(12, 'Must be exactly 12 digits')
+    //   .max(12, 'Must be exactly 12 digits'),
+    // CVV: yup
+    //   .string()
+    //   .required()
+    //   .matches(/^[0-9]+$/, 'Must be only digits')
+    //   .min(3, 'Must be exactly 3 digits')
+    //   .max(3, 'Must be exactly 3 digits'),
+    // month: yup
+    //   .string()
+    //   .required()
+    //   .matches(/^[0-9]+$/, 'Must be only digits')
+    //   .min(2, 'Must be exactly 2 digits')
+    //   .max(2, 'Must be exactly 2 digits'),
+    // year: yup
+    //   .string()
+    //   .required()
+    //   .matches(/^[0-9]+$/, 'Must be only digits')
+    //   .min(2, 'Must be exactly 2 digits')
+    //   .max(2, 'Must be exactly 2 digits')
   })
 
   const {
@@ -287,7 +287,7 @@ const Checkout = () => {
               <p className='text-xs'>{errors.notes?.message}</p>
             </section>
 
-            <section className='my-12'>
+            {/* <section className='my-12'>
               <p className='text-base font-semibold font-Poppins mb-5 text-black capitalize'>
                 payment detail
               </p>
@@ -382,6 +382,7 @@ const Checkout = () => {
                 </section>
               </section>
             </section>
+         */}
             <button
               type='submit'
               className='text-sm font-semibold tracking-wider bg-black text-white py-3 border border-solid border-black capitalize flex items-center justify-center my-8 h-full transition duration-500 ease-in-out hover:text-black hover:bg-white'

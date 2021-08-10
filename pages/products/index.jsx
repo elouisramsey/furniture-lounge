@@ -32,11 +32,11 @@ const apolloClient = new ApolloClient({
 const Index = ({ products }) => {
   return (
     <>
-      <section className='px-10 my-16'>
+      <section className='lg:px-10 my-5 lg:my-16 px-4'>
         <h2 className='text-heroHead font-PlayFairDisplay text-2xl'>
           All Products
         </h2>
-        <article className='grid-cols-4 grid gap-6 my-8'>
+        <article className='lg:grid-cols-4 grid lg:gap-6 my-5 lg:my-8'>
           {products ? (
             products.map((product) => (
               <React.Fragment key={product.id}>

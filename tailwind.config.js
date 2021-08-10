@@ -17,7 +17,8 @@ module.exports = {
         heroBg: '#DDC0AE',
         cateBg: '#f4fafb',
         orderSummary: '#f7fbfd',
-        success: '#3bbc9a'
+        success: '#3bbc9a',
+        cartBG: 'rgb(197 195 195 / 40%);'
       },
       textColor: {
         heroHead: 'rgba(0, 0, 0, 0.8)',
