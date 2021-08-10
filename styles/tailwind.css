@@ -14,6 +14,13 @@
   src: url('/fonts/PlayfairDisplay-Regular.ttf');
 }
 
+:root {
+  --amplify-primary-color: #000;
+  --amplify-primary-contrast: var(--amplify-white);
+  --amplify-primary-tint: #a5a5a5;
+  --amplify-primary-shade: #a5a5a5;
+}
+
 #__next {
   display: flex;
   flex-direction: column;
