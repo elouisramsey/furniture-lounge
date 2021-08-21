@@ -19,7 +19,7 @@ const Login = () => {
     <section className='flex justify-center'>
       <form
         onSubmit={handleSubmit}
-        className='flex shadow-md flex-col py-8 px-8 w-3/5 h-3/5 my-8'
+        className='flex shadow-md flex-col py-4 mx-4 lg:py-8 px-4 lg:px-8 w-full my-0 lg:w-3/5 h-3/5 lg:my-8'
       >
         {' '}
         <h3 className='font-PlayFairDisplay text-xl font-medium text-gray-600 my-3'>
@@ -52,7 +52,7 @@ const Login = () => {
         />
         <button
           type='submit'
-          className='text-sm font-semibold tracking-wider bg-black text-white py-2 border border-black border-solid capitalize w-1/5 flex items-center justify-center my-4'
+          className='text-sm font-semibold tracking-wider bg-black text-white py-2 border border-black border-solid capitalize w-full lg:w-1/5 flex items-center justify-center my-4'
         >
           login
         </button>

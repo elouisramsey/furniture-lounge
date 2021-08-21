@@ -3,11 +3,23 @@ import { useState } from 'react'
 import { BsPlus, BsStar } from 'react-icons/bs'
 import Quantity from '../buttons/Quantity'
 import { useCartContext } from '../context/CartProvider'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
+import { BiArrowBack } from 'react-icons/bi'
 
 const Product = ({ product }) => {
   const [numberOfitems, updateNumberOfItems] = useState(1)
+  const [setText, handleSetText] = useState('Add to cart')
   const { image, name, description, price } = product
   const { addToCart } = useCartContext()
+  const router = useRouter()
+
+  const handleClick = () => {
+    handleSetText('Adding to cart...')
+    setTimeout(() => {
+      handleSetText('Add to cart')
+    }, 2500)
+  }
 
   function addProductToCart(product) {
     product['quantity'] = numberOfitems
@@ -24,11 +36,21 @@ const Product = ({ product }) => {
   }
 
   return (
-    <section className='lg:px-10 lg:my-5 flex'>
+    <section className='lg:px-10 lg:my-5 flex flex-col'>
+      <div>
+        {' '}
+        <button
+          onClick={() => router.back()}
+          className='flex items-center mb-4 text-sm text-gray-400 hover:text-black transition ease-in-out'
+        >
+          <BiArrowBack className='mr-2' /> Go back
+        </button>
+      </div>
       <section className='w-full flex flex-col lg:flex-row'>
-        <section className='bg-light flex items-center justify-center h-120 hover:bg-light-200 w-full'>
+        <section className='bg-light flex items-center justify-center h-full hover:bg-light-200 w-full'>
           <section className='py-16 flex items-center justify-center'>
             <section className='flex justify-center items-center h-64 productDetails'>
+              {/* <Image src={image.key} alt={name} layout='fill' /> */}
               <AmplifyS3Image
                 imgKey={image.key}
                 className='max-w-full flex '
@@ -59,10 +81,15 @@ const Product = ({ product }) => {
 
             <section className='py-12 lg:py-6'>
               <button
-                onClick={() => addProductToCart(product)}
+                onClick={() => {
+                  handleClick()
+                  addProductToCart(product)
+                }}
                 className='flex items-center h-14 bg-black text-white border border-black border-solid px-6 w-full flex-grow text hover:text-black hover:bg-white transition duration-100 ease-in-out font-Poppins'
               >
-                <span className='flex-grow mr-4 text-center'>Add to cart</span>
+                <span className='flex-grow mr-4 text-center transition duration-300 ease-in-out'>
+                  {setText}
+                </span>
                 <span className='border-l border-white pl-4'>
                   {'\u20A6'} {price.toLocaleString()}
                 </span>

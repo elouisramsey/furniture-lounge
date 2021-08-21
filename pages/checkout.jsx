@@ -111,7 +111,7 @@ const Checkout = () => {
   return (
     <>
       {user && numberOfItemsInCart !== 0 ? (
-        <section className='px-10 py-8 flex'>
+        <section className='px-4 lg:px-10 py-4 lg:py-8 flex flex-col lg:flex-row'>
           <form
             onSubmit={handleSubmit(onSubmitHandler)}
             className='flex flex-col lg:w-1/2'
@@ -134,7 +134,10 @@ const Checkout = () => {
             <p className='text-base font-semibold font-Poppins my-5 text-black capitalize'>
               customer
             </p>
-            <label htmlFor='name' className='text-lightGrey text-sm mb-2'>
+            <label
+              htmlFor='name'
+              className='text-lightGrey text-xs lg:text-sm mb-2'
+            >
               Full name*
             </label>
             <input
@@ -146,12 +149,12 @@ const Checkout = () => {
               className='h-12 border border-solid border-borderColor font-Poppins font-medium text-black focus:ring-transparent focus:outline-none form-input'
             />
             <p className='text-xs'>{errors.name?.message}</p>
-            <section className='grid grid-cols-2 gap-3 my-4'>
+            <section className='grid lg:grid-cols-2 gap-3 my-4'>
               <div className='flex flex-col'>
                 {' '}
                 <label
                   htmlFor='telephone'
-                  className='text-lightGrey text-sm mb-2'
+                  className='text-lightGrey text-xs lg:text-sm mb-2'
                 >
                   Telephone*
                 </label>
@@ -167,7 +170,10 @@ const Checkout = () => {
               </div>
               <div className='flex flex-col'>
                 {' '}
-                <label htmlFor='email' className='text-lightGrey text-sm mb-2'>
+                <label
+                  htmlFor='email'
+                  className='text-lightGrey text-xs lg:text-sm mb-2'
+                >
                   Email*
                 </label>
                 <input
@@ -186,7 +192,7 @@ const Checkout = () => {
             </p>
             <label
               htmlFor='shippingName'
-              className='text-lightGrey text-sm mb-2'
+              className='text-lightGrey text-xs lg:text-sm mb-2'
             >
               Full name*
             </label>
@@ -199,12 +205,12 @@ const Checkout = () => {
               className='form-input h-12 border border-solid border-borderColor font-Poppins font-medium text-black focus:outline-none'
             />
             <p className='text-xs'>{errors.shippingName?.message}</p>
-            <section className='grid grid-cols-2 gap-3 my-4'>
+            <section className='grid lg:grid-cols-2 gap-3 my-4'>
               <div className='flex flex-col'>
                 {' '}
                 <label
                   htmlFor='address'
-                  className='text-lightGrey text-sm mb-2'
+                  className='text-lightGrey text-xs lg:text-sm mb-2'
                 >
                   Address Line 1*
                 </label>
@@ -222,7 +228,7 @@ const Checkout = () => {
                 {' '}
                 <label
                   htmlFor='address2'
-                  className='text-lightGrey text-sm mb-2'
+                  className='text-lightGrey text-xs lg:text-sm mb-2'
                 >
                   Address Line 2 (optional)
                 </label>
@@ -236,7 +242,10 @@ const Checkout = () => {
                 <p className='text-xs'>{errors.address2?.message}</p>
               </div>
             </section>
-            <label htmlFor='address' className='text-lightGrey text-sm mb-2'>
+            <label
+              htmlFor='address'
+              className='text-lightGrey text-xs lg:text-sm mb-2'
+            >
               Shipping method*
             </label>
             <select
@@ -246,7 +255,7 @@ const Checkout = () => {
               // {...register('delivery')}
               name='delivery'
               id='delivery'
-              className='h-12 border border-solid border-borderColor font-Poppins font-medium text-softGrey form-select  focus:border-borderColor focus:ring-transparent focus:outline-none'
+              className='h-12 border border-solid border-borderColor font-Poppins font-medium text-softGrey form-select  focus:border-borderColor focus:ring-transparent focus:outline-none  text-xs lg:text-sm'
             >
               <option className='text-softGrey' value='0'>
                 Select a delivery option
@@ -266,7 +275,7 @@ const Checkout = () => {
             <section className='my-4 flex'>
               <label className='flex items-center'>
                 <input type='checkbox' className='form-checkbox color-black' />
-                <span className='ml-2 font-Poppins text-black text-sm w-4/5 font-medium'>
+                <span className='ml-2 font-Poppins text-black text-xs lg:text-sm lg:w-4/5 font-medium'>
                   Receive our news, restocking, good plans and news in your
                   mailbox! Rest assured, you will not be flooded, we only send
                   one newsletter per month approximately 🙂
@@ -274,7 +283,10 @@ const Checkout = () => {
               </label>
             </section>
             <section className='my-4 flex flex-col'>
-              <label htmlFor='notes' className='text-lightGrey text-sm mb-2'>
+              <label
+                htmlFor='notes'
+                className='text-lightGrey text-xs lg:text-sm mb-2'
+              >
                 Order notes (optional)
               </label>
               <textarea
@@ -311,7 +323,7 @@ const Checkout = () => {
                     <section className='flex flex-col w-4/5 mr-4'>
                       <label
                         htmlFor='cardNo'
-                        className='text-lightGrey text-sm mb-2'
+                        className='text-lightGrey text-xs lg:text-sm mb-2'
                       >
                         Card Number*
                       </label>
@@ -328,7 +340,7 @@ const Checkout = () => {
                     <section className='flex flex-col w-1/5'>
                       <label
                         htmlFor='CVV'
-                        className='text-lightGrey text-sm mb-2'
+                        className='text-lightGrey text-xs lg:text-sm mb-2'
                       >
                         CVV*
                       </label>
@@ -347,7 +359,7 @@ const Checkout = () => {
                     <section className='flex flex-col w-2/6 mr-4'>
                       <label
                         htmlFor='month'
-                        className='text-lightGrey text-sm mb-2'
+                        className='text-lightGrey text-xs lg:text-sm mb-2'
                       >
                         Expiry Month*
                       </label>
@@ -364,7 +376,7 @@ const Checkout = () => {
                     <section className='flex flex-col w-2/6 mr-4'>
                       <label
                         htmlFor='year'
-                        className='text-lightGrey text-sm mb-2'
+                        className='text-lightGrey text-xs lg:text-sm mb-2'
                       >
                         Expiry Year*
                       </label>
@@ -385,77 +397,92 @@ const Checkout = () => {
          */}
             <button
               type='submit'
-              className='text-sm font-semibold tracking-wider bg-black text-white py-3 border border-solid border-black capitalize flex items-center justify-center my-8 h-full transition duration-500 ease-in-out hover:text-black hover:bg-white'
+              className='text-sm font-semibold tracking-wider bg-black text-white py-2 lg:py-3 border border-solid border-black capitalize flex items-center justify-center my-8 h-full transition duration-500 ease-in-out hover:text-black hover:bg-white'
             >
               make payment
             </button>
           </form>
-          <section className=' pl-16 w-1/2'>
-            <section className='bg-orderSummary p-8 ml-16'>
+          <section className='lg:pl-16 lg:w-1/2'>
+            <section className='bg-orderSummary lg:p-8 lg:ml-16'>
               <p className='text-base font-semibold font-Poppins mb-5 text-black capitalize'>
                 your order
               </p>
               <section className='border-t border-b border-solid py-5'>
                 {cart?.map((product) => (
-                  <section className='flex justify-between' key={product.id}>
-                    <section className='flex items-center mb-5'>
-                      <section className='flex justify-center w-36 items-center h-16 overflow-hidden bg-cateBg'>
+                  <section
+                    className='w-full flex justify-between'
+                    key={product.id}
+                  >
+                    <section className='w-full flex items-center mb-5'>
+                      <section className='flex justify-center w-40 items-center h-16 overflow-hidden bg-cateBg'>
                         <AmplifyS3Image
                           imgKey={product.image.key}
                           className='max-w-full flex w-full'
                           alt={product.name}
                         />
                       </section>
-                      <section className='flex flex-col ml-3'>
-                        <p className='text-sm text-black font-semibold capitalize'>
-                          {product.name}
-                        </p>
-                        <p className='text-sm text-lightGrey'>
-                          Quantity: {product.quantity}
-                        </p>{' '}
-                        <p className='text-sm text-lightGrey capitalize'>
-                          weight: {product.weight}kg
+                      <section className='flex w-full justify-between'>
+                        <section className='flex flex-col mx-2'>
+                          <p className='text-sm text-black font-semibold capitalize'>
+                            {product.name}
+                          </p>
+                          <p className='text-xs lg:text-sm text-lightGrey'>
+                            Quantity: {product.quantity}
+                          </p>{' '}
+                          <p className='text-xs lg:text-sm text-lightGrey capitalize'>
+                            weight: {product.weight}kg
+                          </p>
+                        </section>
+                        <p className='text-semibold text-black'>
+                          {'\u20A6'}
+                          {(product.price * product.quantity).toLocaleString()}
                         </p>
                       </section>
                     </section>
-                    <p className='text-semibold text-black'>
-                      {'\u20A6'}
-                      {(product.price * product.quantity).toLocaleString()}
-                    </p>
                   </section>
                 ))}
               </section>
               <section className='border-b border-solid border-black py-5'>
                 <section className='flex justify-between items-center '>
-                  <p className='font-thin text-black capitalize'>subtotal</p>
-                  <p className='font-medium bold text-black'>
+                  <p className='font-thin text-black capitalize text-tiny lg:text-sm'>
+                    subtotal
+                  </p>
+                  <p className='font-medium text-black text-tiny lg:text-sm'>
                     {'\u20A6'}
                     {total.toLocaleString()}
                   </p>
                 </section>
                 <section className='flex justify-between items-center '>
-                  <p className='font-thin text-black capitalize'>tax</p>
-                  <p className='font-medium bold text-black'>{'\u20A6'}0</p>
+                  <p className='font-thin text-black capitalize text-tiny lg:text-sm'>
+                    tax
+                  </p>
+                  <p className='font-medium text-black text-tiny lg:text-sm'>
+                    {'\u20A6'}0
+                  </p>
                 </section>
                 <section className='flex justify-between items-center '>
-                  <p className='font-thin text-black capitalize'>shipping</p>
-                  <p className='font-medium bold text-black'>
+                  <p className='font-thin text-black capitalize text-tiny lg:text-sm'>
+                    shipping
+                  </p>
+                  <p className='font-medium text-black text-tiny lg:text-sm'>
                     {'\u20A6'}
                     {delivery}
                   </p>
                 </section>
                 <section className='flex justify-between items-center '>
-                  <p className='font-thin text-black capitalize'>discount</p>
-                  <p className='font-medium bold text-black'>
+                  <p className='font-thin text-black capitalize text-tiny lg:text-sm'>
+                    discount
+                  </p>
+                  <p className='font-medium text-black text-tiny lg:text-sm'>
                     No discount applied
                   </p>
                 </section>
               </section>
               <section className='flex justify-between items-center py-5'>
-                <p className='text-black font-semibold capitalize text-lg'>
+                <p className='text-black font-semibold capitalize text-base lg:text-lg'>
                   total amount
                 </p>
-                <p className='text-black font-semibold text-lg'>
+                <p className='text-black font-semibold text-base lg:text-lg'>
                   {'\u20A6'} {totalCost.toLocaleString()}
                 </p>
               </section>

@@ -6,7 +6,7 @@ function Profile() {
 
   return (
     <>
-      <section className='px-10'>
+      <section className='px-4 lg:px-10'>
         {user ? <h1>Welcome, {userprofile.username}</h1> : <Login />}
       </section>
     </>

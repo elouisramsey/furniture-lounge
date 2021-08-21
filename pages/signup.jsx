@@ -1,7 +1,9 @@
 import { Auth } from 'aws-amplify'
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 const Signup = () => {
+  const router = useRouter()
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -12,7 +14,7 @@ const Signup = () => {
   const register = async () => {
     e.preventDefault()
     try {
-      await Auth.signUp({
+      const { user } = await Auth.signUp({
         username,
         password,
         attributes: { email, phone_number }
@@ -28,7 +30,9 @@ const Signup = () => {
     e.preventDefault()
     try {
       await Auth.confirmSignUp({ username, authenticationCode })
+      await Auth.signIn(username, password)
       console.log('user successfully signed up')
+      router.push('/')
     } catch (error) {
       console.log('there was an error: ', error)
     }

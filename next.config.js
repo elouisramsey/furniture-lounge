@@ -15,5 +15,10 @@ module.exports = withFonts({
       ]
     })
     return config
+  },
+  images: {
+    domains: [
+      'https://chairlounges161137-dev.s3.us-east-2.amazonaws.com/public/'
+    ]
   }
 })

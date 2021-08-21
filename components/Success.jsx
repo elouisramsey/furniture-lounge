@@ -3,10 +3,10 @@ import { BsCheck } from 'react-icons/bs'
 import Btn from './buttons/Btn'
 
 const Success = ({ reference, cart, total }) => {
-  console.log(cart, total)
+  // console.log(cart, total)
   return (
-    <section className='grid grid-cols-2'>
-      <section className='flex items-center justify-center flex-col h-full'>
+    <section className='grid lg:grid-cols-2 my-8 lg:my-0'>
+      <section className='flex items-center justify-center flex-col h-full text-center'>
         <section className='h-12 w-12 rounded-full items-center flex justify-center bg-success'>
           <BsCheck className='text-white text-2xl' />
         </section>
@@ -19,7 +19,7 @@ const Success = ({ reference, cart, total }) => {
         <p className='text-lightGrey text-sm mb-12'>
           Here is your order number for reference: {reference}
         </p>
-        <section className='flex items-center w-4/5 justify-between'>
+        <section className='flex items-center flex-col flex-row w-full lg:w-4/5 justify-between mb-5 lg:mb-0'>
           <Btn
             link='/'
             color='lightGrey'
@@ -28,7 +28,7 @@ const Success = ({ reference, cart, total }) => {
             bg='white'
             w='3/6'
           />
-          <div className='mx-2' v />
+          <div className='lg:mx-2 my-3 lg:my-0' />
           <Btn
             link='/products'
             bg='black'
@@ -38,7 +38,7 @@ const Success = ({ reference, cart, total }) => {
           />
         </section>
       </section>
-      <section className='bg-cateBg p-12'>
+      <section className='bg-cateBg p-4 lg:p-12'>
         <section className=' border-b border-solid border-borderColor py-4'>
           <section className='flex justify-between items-center mb-4'>
             {' '}

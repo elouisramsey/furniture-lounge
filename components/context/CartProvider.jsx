@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 const STORAGE_KEY = 'FURNITURE_HOUSE_APP'
 
 // create context
@@ -79,9 +80,18 @@ export function CartProvider({ children }) {
         total: calculateTotal(cart)
       })
     )
-    toast('Successfully added item to cart!', {
-      position: toast.POSITION.TOP_LEFT
-    })
+    toast.configure(
+      ('Successfully added item to cart!',
+      {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      })
+    )
     forceUpdate()
   }
 

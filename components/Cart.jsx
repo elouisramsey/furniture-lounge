@@ -32,7 +32,7 @@ const Cart = () => {
     <section
       className={
         (open ? 'active ' : 'notActive ') +
-        'z-50 flex justify-end transition-all w-full fixed top-0 bottom-0 bg-cartBG'
+        'z-50 flex justify-end transition-all w-full fixed top-0 bottom-0 bg-transparent'
       }
     >
       <section
