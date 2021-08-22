@@ -35,7 +35,7 @@ const Index = ({ products, tokenGet }) => {
 
   const [nextToken, setNextToken] = useState(products.nextToken)
   const [previousTokens, setPreviousTokens] = useState([products.nextToken])
-  console.log(previousTokens)
+  // console.log(previousTokens)
   const fetchData = async () => {
     setPreviousTokens((prev) => [nextToken])
     const newData = await getAll(nextToken)
@@ -74,8 +74,8 @@ const Index = ({ products, tokenGet }) => {
   }
   return (
     <>
-      <button onClick={handleClick}>FETCH DATA</button>
-      <button onClick={backHandleClick}>back</button>
+      {/* <button onClick={handleClick}>FETCH DATA</button>
+      <button onClick={backHandleClick}>back</button> */}
       <section className='lg:px-10 my-5 lg:my-16 px-4'>
         <h2 className='text-heroHead font-PlayFairDisplay text-2xl'>
           All Products
@@ -142,7 +142,7 @@ export async function getAll(token) {
     .query({
       query: gql`
         query listProducts($token: String) {
-          listProducts(limit: 2, nextToken: $token) {
+          listProducts(limit: 100, nextToken: $token) {
             items {
               id
               name
